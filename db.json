@@ -1,6 +1,14 @@
 {
-  "users": [],
-  "products": [],
+  "users": [
+    {
+      "id": "20afa7fb-0262-47cf-9559-ba92f989ff57",
+      "username": "tainuth",
+      "email": "tainuth1@gmail.com",
+      "password": "12345",
+      "role": "customer"
+    }
+  ],
   "carts": [],
-  "orders": []
+  "orders": [],
+  "products": []
 }
