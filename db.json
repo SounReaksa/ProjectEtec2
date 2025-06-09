@@ -6,6 +6,13 @@
       "email": "tainuth1@gmail.com",
       "password": "12345",
       "role": "customer"
+    },
+    {
+      "id": "7af77a77-1070-4607-8520-74c5489e693f",
+      "username": "test",
+      "email": "test@gmail.com",
+      "password": "12345",
+      "role": "customer"
     }
   ],
   "carts": [],

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 
 const Navbar = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
     <div className="w-full border-b border-gray-200">
@@ -75,6 +75,9 @@ const Navbar = () => {
               </button>
               <button>
                 <i className="bx bx-user text-gray-700 text-xl"></i>
+              </button>
+              <button onClick={logout}>
+                <i class='bx bx-log-out text-gray-700 text-xl'></i>
               </button>
             </>
           ) : (
