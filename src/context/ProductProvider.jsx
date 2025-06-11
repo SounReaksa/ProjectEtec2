@@ -22,8 +22,16 @@ const ProductProvider = ({ children }) => {
     fetchProduct();
   }, []);
 
+  let categories = [];
+  products &&
+    products.forEach((pro) => {
+      if (!categories.includes(pro.category)) {
+        categories.push(pro.category);
+      }
+    });
+
   return (
-    <ProductContext.Provider value={{ products }}>
+    <ProductContext.Provider value={{ products, categories }}>
       {children}
     </ProductContext.Provider>
   );

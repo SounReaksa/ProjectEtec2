@@ -77,7 +77,7 @@ const Navbar = () => {
                 <i className="bx bx-user text-gray-700 text-xl"></i>
               </button>
               <button onClick={logout}>
-                <i class='bx bx-log-out text-gray-700 text-xl'></i>
+                <i className='bx bx-log-out text-gray-700 text-xl'></i>
               </button>
             </>
           ) : (

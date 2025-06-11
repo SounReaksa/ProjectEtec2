@@ -21,11 +21,11 @@ const ProductCard = ({ product }) => {
         </h3>
         <div className="flex items-center gap-2">
           <div className="flex text-[14px] text-yellow-500">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class='bx bxs-star-half'></i>
-            <i class='bx bx-star' ></i>
+            <i className="bx bxs-star"></i>
+            <i className="bx bxs-star"></i>
+            <i className="bx bxs-star"></i>
+            <i className='bx bxs-star-half'></i>
+            <i className='bx bx-star' ></i>
           </div>
           <span className="text-[11px]">(4.5)</span>
         </div>
