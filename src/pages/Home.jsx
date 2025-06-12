@@ -59,9 +59,9 @@ const Home = () => {
                 Trending Categories
               </h2>
             </div>
-            <button className="inline-flex items-center justify-center hover:bg-white gap-2 whitespace-nowrap rounded-md text-[13px] font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2">
+            <Link to={"/products"} className="inline-flex items-center justify-center hover:bg-white gap-2 whitespace-nowrap rounded-md text-[13px] font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2">
               View All Product
-            </button>
+            </Link>
           </div>
           <div className="flex gap-5 items-center mt-6 overflow-x-scroll hideScrollBar">
             {categories.map((cate) => (
@@ -93,9 +93,9 @@ const Home = () => {
                 Explore Our Products
               </h2>
             </div>
-            <button className="inline-flex items-center justify-center hover:bg-white gap-2 whitespace-nowrap rounded-md text-[13px] font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2">
+            <Link to={"/products"} className="inline-flex items-center justify-center hover:bg-white gap-2 whitespace-nowrap rounded-md text-[13px] font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2">
               View All Product
-            </button>
+            </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
             {!products ? (

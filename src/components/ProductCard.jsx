@@ -21,13 +21,21 @@ const ProductCard = ({ product }) => {
         </h3>
         <div className="flex items-center gap-2">
           <div className="flex text-[14px] text-yellow-500">
-            <i className="bx bxs-star"></i>
-            <i className="bx bxs-star"></i>
-            <i className="bx bxs-star"></i>
-            <i className='bx bxs-star-half'></i>
-            <i className='bx bx-star' ></i>
+            {Array.from({ length: 5 }).map((_, idx) => {
+                const rate = product.rate;
+                if (rate >= idx + 1) {
+                    // Full star
+                    return <i key={idx} className="bx bxs-star"></i>;
+                } else if (rate >= idx + 0.5) {
+                    // Half star
+                    return <i key={idx} className="bx bxs-star-half"></i>;
+                } else {
+                    // Empty star
+                    return <i key={idx} className="bx bx-star"></i>;
+                }
+            })}
           </div>
-          <span className="text-[11px]">(4.5)</span>
+          <span className="text-[11px]">({product.rate.toFixed(1)})</span>
         </div>
         <div className="flex items-center justify-between">
           <div className="">

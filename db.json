@@ -30,7 +30,7 @@
         "https://bizweb.dktcdn.net/100/517/334/products/ip-15-pro-max-mhm-xanh-9a4ac8db5bb34883956fc0704320830f-grande-f3c2eec1-29c9-4d80-804d-95b2dd812f46.jpg?v=1716308540803"
       ],
       "stock": 50,
-      "discount": 20,
+      "discount": 25,
       "rate": 3.6
     },
     {
@@ -47,7 +47,8 @@
         "https://d1rlzxa98cyc61.cloudfront.net/catalog/product/cache/1801c418208f9607a371e61f8d9184d9/1/9/190905_2024_8.jpg"
       ],
       "stock": 60,
-      "discount": 7
+      "discount": 7,
+      "rate": 4.2
     },
     {
       "name": "Sony Xperia 1 V",
@@ -61,7 +62,8 @@
         "https://media.very.co.uk/i/very/W38EJ_SQ5_0000000004_BLACK_SLd1?$pdp_990x1320_x2$&fmt=webp&$roundel_very$&p1_img=insurance_available"
       ],
       "stock": 30,
-      "discount": 10
+      "discount": 10,
+      "rate": 4.0
     },
     {
       "name": "Dell XPS 15",
@@ -75,7 +77,8 @@
         "https://media.wired.com/photos/6169f03b58660fcbc5f4ec3b/master/w_1600%2Cc_limit/Gear-Dell-XPS-15-OLED-1.jpg"
       ],
       "stock": 25,
-      "discount": 8
+      "discount": 8,
+      "rate": 4.5
     },
     {
       "name": "HP Spectre x360",
@@ -89,7 +92,8 @@
         "https://www.corning.com/microsites/csm/gorillaglass/HP/CGG_HP_Spectre-x360.jpg"
       ],
       "stock": 40,
-      "discount": 6
+      "discount": 6,
+      "rate": 4.1
     },
     {
       "name": "Lenovo ThinkPad X1 Carbon Gen 11",
@@ -103,7 +107,8 @@
         "https://khoaquan.vn/wp-content/uploads/2021/05/banle-1.jpg"
       ],
       "stock": 35,
-      "discount": 9
+      "discount": 9,
+      "rate": 4.3
     },
     {
       "name": "Microsoft Surface Laptop 5",
@@ -117,7 +122,8 @@
         "https://laptopsking.com/cdn/shop/files/IMG_E7244.jpg?v=1703167911&width=1445"
       ],
       "stock": 28,
-      "discount": 7
+      "discount": 7,
+      "rate": 4.0
     },
     {
       "name": "Asus ROG Zephyrus G14",
@@ -131,7 +137,8 @@
         "https://s3.ap-southeast-1.amazonaws.com/uploads-store/uploads/all/hcyFpK461AF35hA34XOCM6ovqm5qKkcIffih5VDj.png"
       ],
       "stock": 20,
-      "discount": 12
+      "discount": 12,
+      "rate": 4.6
     },
     {
       "name": "Acer Swift 5",
@@ -145,7 +152,8 @@
         "https://img.lazcdn.com/g/p/c677ed8ee37450c6a432fec4e7f1bfcb.png_720x720q80.png"
       ],
       "stock": 32,
-      "discount": 5
+      "discount": 5,
+      "rate": 4.2
     },
     {
       "name": "iPad Pro 12.9-inch (2024)",
@@ -159,7 +167,8 @@
         "https://item-shopping.c.yimg.jp/i/n/janpara_225024363-233_1_d_20250418113206"
       ],
       "stock": 45,
-      "discount": 6
+      "discount": 6,
+      "rate": 4.7
     },
     {
       "name": "Samsung Galaxy Tab S9 Ultra",
@@ -173,7 +182,8 @@
         "https://images.samsung.com/is/image/samsung/p6pim/br/sm-x910nzadzto/gallery/br-galaxy-tab-s9-ultra-wifi-x910-sm-x910nzadzto-540368864?$684_547_PNG$"
       ],
       "stock": 38,
-      "discount": 8
+      "discount": 8,
+      "rate": 4.4
     },
     {
       "name": "Microsoft Surface Pro 9",
@@ -187,7 +197,8 @@
         "https://www.tmt.my/data/editor/sc-product/3607/SP9.jpg"
       ],
       "stock": 27,
-      "discount": 10
+      "discount": 10,
+      "rate": 4.1
     },
     {
       "name": "Huawei MatePad Pro 13.2",
@@ -201,7 +212,8 @@
         "https://www.jibalzone.com/media/7339/conversions/66f3ff9c664c3_Huawei-MatePad-Pro-12.2-2024-4-slider.jpg"
       ],
       "stock": 22,
-      "discount": 9
+      "discount": 9,
+      "rate": 4.0
     },
     {
       "name": "Apple Watch Series 9",
@@ -215,7 +227,8 @@
         "https://khmerapsaraphone.com/wp-content/uploads/2023/09/apple-watch-series-9-aluminum-starlight-starlight-sport-band.webp"
       ],
       "stock": 55,
-      "discount": 5
+      "discount": 5,
+      "rate": 4.5
     },
     {
       "name": "Samsung Galaxy Watch 6",
@@ -231,7 +244,8 @@
         "https://images.samsung.com/is/image/samsung/p6pim/africa_en/2307/gallery/africa-en-galaxy-watch6-r945-sm-r940nzkamea-537401496?$684_547_JPG$"
       ],
       "stock": 48,
-      "discount": 7
+      "discount": 7,
+      "rate": 4.3
     },
     {
       "name": "Sony WH-1000XM5",
@@ -248,7 +262,8 @@
         "https://arystorephone.com/wp-content/uploads/2023/10/Sony_WH-1000XM5_Black3.jpg?v=1743143208"
       ],
       "stock": 70,
-      "discount": 10
+      "discount": 10,
+      "rate": 4.8
     },
     {
       "name": "Apple AirPods Max",
@@ -264,7 +279,8 @@
         "https://angkormeas.com/wp-content/uploads/2024/09/Airpod-Max2_Orrange.jpg"
       ],
       "stock": 40,
-      "discount": 8
+      "discount": 8,
+      "rate": 4.6
     },
     {
       "name": "Logitech G Pro X Keyboard",
@@ -279,7 +295,8 @@
         "https://static.labeb.com/test/images/catalogs/104810/qgrzvr1or12-w234.jpg"
       ],
       "stock": 80,
-      "discount": 12
+      "discount": 12,
+      "rate": 4.7
     },
     {
       "name": "Razer DeathAdder V3 Mouse",
@@ -293,7 +310,8 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgaWT_tWqPfYoxnBJOuwi4BDnvyGwZ35DkK3QevBRzGxjz0ABmWoFJ2YyrXOMUH1kODk&usqp=CAU"
       ],
       "stock": 90,
-      "discount": 15
+      "discount": 15,
+      "rate": 4.4
     },
     {
       "name": "Canon EOS R8",
@@ -307,7 +325,8 @@
         "https://www.camerahouse.com.au/media/catalog/product/_/b/_bb8ztyy.png?optimize=medium&fit=bounds&height=&width=&format=jpeg"
       ],
       "stock": 18,
-      "discount": 7
+      "discount": 7,
+      "rate": 4.3
     },
     {
       "name": "DJI Mini 4 Pro",
@@ -322,7 +341,8 @@
         "https://droneprix.es/5501-home_default/mini-4-pro.jpg"
       ],
       "stock": 25,
-      "discount": 10
+      "discount": 10,
+      "rate": 4.5
     },
     {
       "name": "Google Nest Hub Max",
@@ -336,7 +356,8 @@
         "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/16212468/vpavic_190501_3401_0030.jpg?quality=90&strip=all&crop=0,0,100,100"
       ],
       "stock": 35,
-      "discount": 8
+      "discount": 8,
+      "rate": 4.2
     },
     {
       "name": "Apple MacBook Pro 16-inch (M3)",
@@ -352,7 +373,8 @@
         "https://arystorephone.com/wp-content/uploads/2023/11/macbook-pro-16-silver.jpg?v=1743143022"
       ],
       "stock": 15,
-      "discount": 5
+      "discount": 5,
+      "rate": 4.8
     },
     {
       "name": "Samsung Odyssey G9 Monitor",
@@ -367,7 +389,8 @@
         "https://www.beckie-khmer.com/storage/products/QSrYFyC7JxPumbWSV2u0HnvfpjQzIowYZGkld0qo.jpeg"
       ],
       "stock": 22,
-      "discount": 9
+      "discount": 9,
+      "rate": 4.6
     },
     {
       "name": "Sony PlayStation 5",
@@ -382,7 +405,8 @@
         "https://cdn.mos.cms.futurecdn.net/v2/t:0,l:480,cw:2880,ch:2160,q:80,w:2880/hv7xAYATXmA4tmQjXvNyBb.png"
       ],
       "stock": 45,
-      "discount": 6
+      "discount": 6,
+      "rate": 4.7
     },
     {
       "name": "Microsoft Xbox Series X",
@@ -396,7 +420,8 @@
         "https://gamesource.pk/wp-content/uploads/2024/02/71AbYCAvr-L-min.jpg"
       ],
       "stock": 40,
-      "discount": 7
+      "discount": 7,
+      "rate": 4.5
     },
     {
       "name": "Nintendo Switch OLED",
@@ -411,7 +436,8 @@
         "https://i5.walmartimages.com/asr/45744e9c-ba00-4e65-955a-01deb57d327c.bd8659eae458a6093c4e6042edb48fd5.jpeg"
       ],
       "stock": 38,
-      "discount": 8
+      "discount": 8,
+      "rate": 4.4
     },
     {
       "name": "HP LaserJet Pro M404dn",
@@ -426,7 +452,8 @@
         "https://i.ebayimg.com/images/g/dsUAAOSwGQVlBeQM/s-l1600.webp"
       ],
       "stock": 30,
-      "discount": 10
+      "discount": 10,
+      "rate": 4.2
     },
     {
       "name": "Canon PIXMA G6020",
@@ -441,7 +468,8 @@
         "https://m.media-amazon.com/images/I/81bMb-17OeL._AC_SX466_.jpg"
       ],
       "stock": 28,
-      "discount": 12
+      "discount": 12,
+      "rate": 4.1
     },
     {
       "name": "Asus RT-AX88U Router",
@@ -456,7 +484,8 @@
         "https://www.asus.com/media/global/gallery/Uvjo6rZtforMSpTB_setting_xxx_0_90_end_800.png"
       ],
       "stock": 33,
-      "discount": 9
+      "discount": 9,
+      "rate": 4.3
     },
     {
       "name": "Google Nest Wifi Pro",
@@ -471,7 +500,8 @@
         "https://www.jbhifi.com.au/cdn/shop/products/662337-Product-9-I-638320695731016779_89b88ddd-e145-439a-bbc5-dce22ba9ef20.jpg?v=1705900025"
       ],
       "stock": 36,
-      "discount": 8
+      "discount": 8,
+      "rate": 4.2
     },
     {
       "name": "DJI Osmo Action 4",
@@ -486,7 +516,8 @@
         "https://images.khmer24.co/24-07-03/dji-osmo-action-4-adventure-combo--1015886172000027884431873-b.jpg"
       ],
       "stock": 20,
-      "discount": 11
+      "discount": 11,
+      "rate": 4.5
     },
     {
       "name": "Huawei Watch GT 4",
@@ -501,7 +532,8 @@
         "https://ttt-dn.com/wp-content/uploads/2024/02/gt4.jpg"
       ],
       "stock": 42,
-      "discount": 10
+      "discount": 10,
+      "rate": 4.3
     },
     {
       "name": "Xiaomi Mi Smart Band 8",
@@ -515,7 +547,8 @@
         "https://www.batna24.com/img2/1000/335460_170919.webp"
       ],
       "stock": 100,
-      "discount": 15
+      "discount": 15,
+      "rate": 4.1
     },
     {
       "name": "Lenovo Legion 5 Pro",
@@ -531,7 +564,8 @@
         "https://s3.ap-southeast-1.amazonaws.com/uploads-store/uploads/all/HYcn0DoXd2G9YhQom77vi8D4MeWpQwaY2dVdmsqW.png"
       ],
       "stock": 18,
-      "discount": 10
+      "discount": 10,
+      "rate": 4.6
     },
     {
       "name": "Acer Predator X34 Monitor",
@@ -547,7 +581,8 @@
         "https://m.media-amazon.com/images/I/31JH5GRC3zL.jpg"
       ],
       "stock": 16,
-      "discount": 9
+      "discount": 9,
+      "rate": 4.5
     },
     {
       "name": "Samsung Galaxy Buds2 Pro",
@@ -562,7 +597,8 @@
         "https://images.samsung.com/is/image/samsung/p6pim/latin_en/2208/gallery/latin-en-galaxy-buds2-pro-r510-sm-r510nlvalta-533187603?$684_547_PNG$"
       ],
       "stock": 60,
-      "discount": 12
+      "discount": 12,
+      "rate": 4.3
     },
     {
       "name": "Apple Magic Keyboard",
@@ -576,7 +612,8 @@
         "https://macfinder.co.uk/wp-content/uploads/2020/03/img-Accessories-27661.png"
       ],
       "stock": 70,
-      "discount": 8
+      "discount": 8,
+      "rate": 4.4
     },
     {
       "name": "Logitech MX Master 3S",
@@ -590,7 +627,8 @@
         "https://progearcambodia.com/wp-content/uploads/2022/07/71g7JL29CL._AC_SL1500_-600x580.jpg"
       ],
       "stock": 85,
-      "discount": 10
+      "discount": 10,
+      "rate": 4.5
     },
     {
       "name": "Google Pixel Tablet",
@@ -605,7 +643,8 @@
         "https://m.media-amazon.com/images/I/71XySfAlGuL.jpg"
       ],
       "stock": 30,
-      "discount": 7
+      "discount": 7,
+      "rate": 4.2
     },
     {
       "name": "Huawei MateBook X Pro",
@@ -623,7 +662,8 @@
         "https://img01.huaweifile.com/sg/ms/sa/pms/uomcdn/SA_HW_B2C/pms/202405/gbom/6942103127069/group/800_800_1492BC69F415DB2EEE59C75159C9783B.png"
       ],
       "stock": 22,
-      "discount": 9
+      "discount": 9,
+      "rate": 4.3
     },
     {
       "name": "DJI Air 3 Drone",
@@ -638,7 +678,8 @@
         "https://jetayugadgets.com/storage/639/1-(2).png"
       ],
       "stock": 18,
-      "discount": 11
+      "discount": 11,
+      "rate": 4.4
     },
     {
       "name": "Samsung Smart Monitor M8",
@@ -654,7 +695,8 @@
         "https://images.samsung.com/is/image/samsung/p6pim/ph/ls32dm801uexxp/gallery/ph-smart-m8-32m80d-ls32dm801uexxp-542075498?$684_547_JPG$"
       ],
       "stock": 25,
-      "discount": 8
+      "discount": 8,
+      "rate": 4.2
     },
     {
       "name": "Apple HomePod Mini",
@@ -669,7 +711,8 @@
         "https://m.media-amazon.com/images/I/71FNjvNjs1L.jpg"
       ],
       "stock": 50,
-      "discount": 10
+      "discount": 10,
+      "rate": 4.3
     },
     {
       "name": "Xiaomi Mi Router AX6000",
@@ -684,7 +727,8 @@
         "https://media.router-switch.com/media/mf_webp/jpg/media/catalog/product/cache/b90fceee6a5fa7acd36a04c7b968181c/x/i/xiaomi-mi-ax6000-5.webp"
       ],
       "stock": 40,
-      "discount": 13
+      "discount": 13,
+      "rate": 4.1
     },
     {
       "name": "Lenovo Yoga Tab 13",
@@ -701,7 +745,8 @@
         "https://yekupi.blob.core.windows.net/ekupihr/1200Wx1200H/EK000473324_3.image"
       ],
       "stock": 28,
-      "discount": 9
+      "discount": 9,
+      "rate": 4.0
     }
   ]
 }
