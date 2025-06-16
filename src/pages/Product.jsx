@@ -3,7 +3,8 @@ import { ProductContext } from "../context/ProductProvider";
 import ProductListCard from "../components/ProductListCard";
 
 const Product = () => {
-  const { categories, products } = useContext(ProductContext);
+  const { categories, products, setSortValue, setCategoryValue, setRateValue } =
+    useContext(ProductContext);
   const [showStyle, setShowStyle] = useState("grid");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,8 +13,10 @@ const Product = () => {
   const handleChange = (cate) => {
     if (selectedCategory === cate) {
       setSelectedCategory("");
+      setCategoryValue(cate);
     } else {
       setSelectedCategory(cate);
+      setCategoryValue(cate);
     }
   };
 
@@ -50,49 +53,39 @@ const Product = () => {
                 <p className="text-sm font-medium mb-3">Price</p>
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        className="w-3 h-3 checked:bg-black"
-                      />
-                      <label className="font-medium text-xs">
-                        Under 50$
-                      </label>
+                    <input
+                      type="checkbox"
+                      className="w-3 h-3 checked:bg-black"
+                    />
+                    <label className="font-medium text-xs">Under 50$</label>
                   </div>
                   <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        className="w-3 h-3 checked:bg-black"
-                      />
-                      <label className="font-medium text-xs">
-                        50$ - 250$
-                      </label>
+                    <input
+                      type="checkbox"
+                      className="w-3 h-3 checked:bg-black"
+                    />
+                    <label className="font-medium text-xs">50$ - 250$</label>
                   </div>
                   <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        className="w-3 h-3 checked:bg-black"
-                      />
-                      <label className="font-medium text-xs">
-                        $250 - 500$
-                      </label>
+                    <input
+                      type="checkbox"
+                      className="w-3 h-3 checked:bg-black"
+                    />
+                    <label className="font-medium text-xs">$250 - 500$</label>
                   </div>
                   <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        className="w-3 h-3 checked:bg-black"
-                      />
-                      <label className="font-medium text-xs">
-                        $500$ - 750$
-                      </label>
+                    <input
+                      type="checkbox"
+                      className="w-3 h-3 checked:bg-black"
+                    />
+                    <label className="font-medium text-xs">$500$ - 750$</label>
                   </div>
                   <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        className="w-3 h-3 checked:bg-black"
-                      />
-                      <label className="font-medium text-xs">
-                        Over 750$
-                      </label>
+                    <input
+                      type="checkbox"
+                      className="w-3 h-3 checked:bg-black"
+                    />
+                    <label className="font-medium text-xs">Over 750$</label>
                   </div>
                 </div>
               </div>
@@ -100,52 +93,56 @@ const Product = () => {
                 <p className="text-sm font-medium mb-3">Rate</p>
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        className="w-3 h-3 checked:bg-black"
-                      />
-                      <label className="font-medium text-xs flex items-center">
-                        <i className="bx bxs-star text-[11px] text-yellow-500"></i>
-                        <i className="bx bxs-star text-[11px] text-yellow-500"></i>
-                        <i className="bx bxs-star text-[11px] text-yellow-500"></i>
-                        <i className="bx bxs-star text-[11px] text-yellow-500"></i>
-                        <span className="text-[11px] ml-1">& Up</span>
-                      </label>
+                    <input
+                      onChange={() => setRateValue(4)}
+                      type="checkbox"
+                      className="w-3 h-3 checked:bg-black"
+                    />
+                    <label className="font-medium text-xs flex items-center">
+                      <i className="bx bxs-star text-[11px] text-yellow-500"></i>
+                      <i className="bx bxs-star text-[11px] text-yellow-500"></i>
+                      <i className="bx bxs-star text-[11px] text-yellow-500"></i>
+                      <i className="bx bxs-star text-[11px] text-yellow-500"></i>
+                      <span className="text-[11px] ml-1">& Up</span>
+                    </label>
                   </div>
                   <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        className="w-3 h-3 checked:bg-black"
-                      />
-                      <label className="font-medium text-xs flex items-center">
-                        <i className="bx bxs-star text-[11px] text-yellow-500"></i>
-                        <i className="bx bxs-star text-[11px] text-yellow-500"></i>
-                        <i className="bx bxs-star text-[11px] text-yellow-500"></i>
-                        <span className="text-[11px] ml-1">& Up</span>
-                      </label>
+                    <input
+                      onChange={() => setRateValue(3)}
+                      type="checkbox"
+                      className="w-3 h-3 checked:bg-black"
+                    />
+                    <label className="font-medium text-xs flex items-center">
+                      <i className="bx bxs-star text-[11px] text-yellow-500"></i>
+                      <i className="bx bxs-star text-[11px] text-yellow-500"></i>
+                      <i className="bx bxs-star text-[11px] text-yellow-500"></i>
+                      <span className="text-[11px] ml-1">& Up</span>
+                    </label>
                   </div>
                   <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        className="w-3 h-3 checked:bg-black"
-                      />
-                      <label className="font-medium text-xs flex items-center">
-                        <i className="bx bxs-star text-[11px] text-yellow-500"></i>
-                        <i className="bx bxs-star text-[11px] text-yellow-500"></i>
-                        <span className="text-[11px] ml-1">& Up</span>
-                      </label>
+                    <input
+                      onChange={() => setRateValue(2)}
+                      type="checkbox"
+                      className="w-3 h-3 checked:bg-black"
+                    />
+                    <label className="font-medium text-xs flex items-center">
+                      <i className="bx bxs-star text-[11px] text-yellow-500"></i>
+                      <i className="bx bxs-star text-[11px] text-yellow-500"></i>
+                      <span className="text-[11px] ml-1">& Up</span>
+                    </label>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        className="w-3 h-3 checked:bg-black"
-                      />
-                      <label className="font-medium text-xs flex items-center">
-                        <i className="bx bxs-star text-[11px] text-yellow-500"></i>
-                        <span className="text-[11px] ml-1">& Up</span>
-                      </label>
-                  </div>
+                  <input
+                    onChange={() => setRateValue(1)}
+                    type="checkbox"
+                    className="w-3 h-3 checked:bg-black"
+                  />
+                  <label className="font-medium text-xs flex items-center">
+                    <i className="bx bxs-star text-[11px] text-yellow-500"></i>
+                    <span className="text-[11px] ml-1">& Up</span>
+                  </label>
+                </div>
               </div>
             </div>
           </div>
@@ -161,10 +158,17 @@ const Product = () => {
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                <select className="flex items-center bg-white text-gray-600 justify-between rounded-md border border-input px-3 py-2 text-xs ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 w-48">
-                  <option value="3">Sort by: Price: Default</option>
-                  <option value="3">Sort by: Price: Low to High</option>
-                  <option value="4">Sort by: Price: High to Low</option>
+                <select
+                  onChange={(e) => setSortValue(e.target.value)}
+                  className="flex items-center bg-white text-gray-600 justify-between rounded-md border border-input px-3 py-2 text-xs ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 w-48"
+                >
+                  <option value="">Sort by: Price: Default</option>
+                  <option value="_sort=price">
+                    Sort by: Price: Low to High
+                  </option>
+                  <option value="_sort=-price">
+                    Sort by: Price: High to Low
+                  </option>
                 </select>
                 <div className="flex border border-gray-200 rounded-lg overflow-hidden">
                   <button
@@ -235,9 +239,13 @@ const Product = () => {
                     (currentPage - 1) * productsPerPage,
                     currentPage * productsPerPage
                   )
-                  .map((product) =>
-                    <ProductListCard key={product.id} product={product} showStyle={showStyle} />
-                  )}
+                  .map((product) => (
+                    <ProductListCard
+                      key={product.id}
+                      product={product}
+                      showStyle={showStyle}
+                    />
+                  ))}
             </div>
 
             {/* Pagination */}
@@ -250,7 +258,7 @@ const Product = () => {
                 Previous
               </button>
               <button
-                disabled={currentPage*productsPerPage > products?.length}
+                disabled={currentPage * productsPerPage > products?.length}
                 onClick={() => setCurrentPage(currentPage + 1)}
                 className="bg-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
               >
