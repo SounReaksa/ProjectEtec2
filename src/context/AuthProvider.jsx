@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
       }
 
       if (data[0].password == loginData.password) {
-        localStorage.setItem("id", data.id);
+        localStorage.setItem("id", data[0].id);
         setIsAuthenticated(true);
         navigate("/");
       } else {

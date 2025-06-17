@@ -67,17 +67,17 @@ const Navbar = () => {
               <button>
                 <i className="bx bx-heart text-gray-700 text-xl"></i>
               </button>
-              <button className="relative">
+              <Link to={"/cart"} className="relative">
                 <i className="bx bx-cart text-gray-700 text-xl"></i>
                 <span className="absolute top-[-2px] right-[-4px] bg-gray-900 text-white text-[10px] rounded-full px-[5px]">
                   0
                 </span>
-              </button>
+              </Link>
               <button>
                 <i className="bx bx-user text-gray-700 text-xl"></i>
               </button>
               <button onClick={logout}>
-                <i className='bx bx-log-out text-gray-700 text-xl'></i>
+                <i className="bx bx-log-out text-gray-700 text-xl"></i>
               </button>
             </>
           ) : (

@@ -10,7 +10,7 @@ const ProductProvider = ({ children }) => {
   // Filter State
   const [categoryValue, setCategoryValue] = useState("");
   const [priceValue, setPriceValue] = useState(0);
-  const [rateValue, setRateValue] = useState(1);
+  const [rateValue, setRateValue] = useState(0);
 
   const fetchProduct = async () => {
     try {
@@ -31,9 +31,49 @@ const ProductProvider = ({ children }) => {
       const categoryMatch =
         !categoryValue || product.category === categoryValue;
       const rateMatch = product.rate >= rateValue;
-      return categoryMatch && rateMatch;
+      const priceMatch =
+        priceValue === 0 ||
+        (priceValue === 1 && product.price < 50) ||
+        (priceValue === 2 && product.price >= 50 && product.price <= 250) ||
+        (priceValue === 3 && product.price > 250 && product.price <= 500) ||
+        (priceValue === 4 && product.price > 500 && product.price <= 750) ||
+        (priceValue === 5 && product.price > 750);
+      return categoryMatch && rateMatch && priceMatch;
     });
     setProducts(filteredProduct);
+  };
+
+  const userId = localStorage.getItem("id");
+  const addToCart = async (id, qty) => {
+    const resChecking = await fetch(`http://localhost:3000/carts/${id}`);
+    if (resChecking.ok) {
+      const data = await resChecking.json();
+      const newProductData = { ...data, quantity: data.quantity + qty };
+
+      await fetch(`http://localhost:3000/carts/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newProductData),
+      });
+    } else {
+      // add to cart
+      const productToAdd = allProducts.find((pro) => pro.id == id);
+
+      await fetch(`http://localhost:3000/carts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...productToAdd,
+          images: productToAdd.images[0],
+          quantity: qty,
+          userId
+        }),
+      });
+    }
   };
 
   useEffect(() => {
@@ -60,6 +100,11 @@ const ProductProvider = ({ children }) => {
         setSortValue,
         setCategoryValue,
         setRateValue,
+        setPriceValue,
+        rateValue,
+        priceValue,
+        addToCart,
+        allProducts
       }}
     >
       {children}

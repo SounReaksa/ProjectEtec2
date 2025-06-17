@@ -3,8 +3,16 @@ import { ProductContext } from "../context/ProductProvider";
 import ProductListCard from "../components/ProductListCard";
 
 const Product = () => {
-  const { categories, products, setSortValue, setCategoryValue, setRateValue } =
-    useContext(ProductContext);
+  const {
+    categories,
+    products,
+    setSortValue,
+    setCategoryValue,
+    setRateValue,
+    setPriceValue,
+    rateValue,
+    priceValue,
+  } = useContext(ProductContext);
   const [showStyle, setShowStyle] = useState("grid");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -56,6 +64,8 @@ const Product = () => {
                     <input
                       type="checkbox"
                       className="w-3 h-3 checked:bg-black"
+                      onChange={() => setPriceValue(priceValue === 1 ? 0 : 1)}
+                      checked={priceValue === 1}
                     />
                     <label className="font-medium text-xs">Under 50$</label>
                   </div>
@@ -63,6 +73,8 @@ const Product = () => {
                     <input
                       type="checkbox"
                       className="w-3 h-3 checked:bg-black"
+                      onChange={() => setPriceValue(priceValue === 2 ? 0 : 2)}
+                      checked={priceValue === 2}
                     />
                     <label className="font-medium text-xs">50$ - 250$</label>
                   </div>
@@ -70,20 +82,26 @@ const Product = () => {
                     <input
                       type="checkbox"
                       className="w-3 h-3 checked:bg-black"
+                      onChange={() => setPriceValue(priceValue === 3 ? 0 : 3)}
+                      checked={priceValue === 3}
                     />
-                    <label className="font-medium text-xs">$250 - 500$</label>
+                    <label className="font-medium text-xs">250$ - 500$</label>
                   </div>
                   <div className="flex items-center gap-2">
                     <input
                       type="checkbox"
                       className="w-3 h-3 checked:bg-black"
+                      onChange={() => setPriceValue(priceValue === 4 ? 0 : 4)}
+                      checked={priceValue === 4}
                     />
-                    <label className="font-medium text-xs">$500$ - 750$</label>
+                    <label className="font-medium text-xs">500$ - 750$</label>
                   </div>
                   <div className="flex items-center gap-2">
                     <input
                       type="checkbox"
                       className="w-3 h-3 checked:bg-black"
+                      onChange={() => setPriceValue(priceValue === 5 ? 0 : 5)}
+                      checked={priceValue === 5}
                     />
                     <label className="font-medium text-xs">Over 750$</label>
                   </div>
@@ -96,6 +114,7 @@ const Product = () => {
                     <input
                       onChange={() => setRateValue(4)}
                       type="checkbox"
+                      checked={rateValue === 4}
                       className="w-3 h-3 checked:bg-black"
                     />
                     <label className="font-medium text-xs flex items-center">
@@ -110,6 +129,7 @@ const Product = () => {
                     <input
                       onChange={() => setRateValue(3)}
                       type="checkbox"
+                      checked={rateValue === 3}
                       className="w-3 h-3 checked:bg-black"
                     />
                     <label className="font-medium text-xs flex items-center">
@@ -123,6 +143,7 @@ const Product = () => {
                     <input
                       onChange={() => setRateValue(2)}
                       type="checkbox"
+                      checked={rateValue === 2}
                       className="w-3 h-3 checked:bg-black"
                     />
                     <label className="font-medium text-xs flex items-center">
@@ -136,6 +157,7 @@ const Product = () => {
                   <input
                     onChange={() => setRateValue(1)}
                     type="checkbox"
+                    checked={rateValue === 1}
                     className="w-3 h-3 checked:bg-black"
                   />
                   <label className="font-medium text-xs flex items-center">
