@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import { ProductContext } from '../context/ProductProvider';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../context/CartProvider';
 
 const ProductListCard = ({product, showStyle}) => {
-const {addToCart} = useContext(ProductContext)
+const {addToCart} = useContext(CartContext)
   return (
     <div className="group rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-shadow">
         <div className={`p-4 ${showStyle === "list" && "flex gap-3 items-center"}`}>

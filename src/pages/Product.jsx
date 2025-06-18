@@ -12,6 +12,8 @@ const Product = () => {
     setPriceValue,
     rateValue,
     priceValue,
+    searchQuery,
+    clearSearch,
   } = useContext(ProductContext);
   const [showStyle, setShowStyle] = useState("grid");
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -172,12 +174,27 @@ const Product = () => {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
               <div className="">
                 <h1 className="text-xl font-bold text-gray-900">
-                  All Products
+                  {searchQuery
+                    ? `Search Results for "${searchQuery}"`
+                    : "All Products"}
                 </h1>
                 <p className="text-sm text-gray-600">
-                  Showing {productsPerPage * currentPage} of{" "}
-                  {products && products.length} results
+                  Showing{" "}
+                  {Math.min(
+                    productsPerPage * currentPage,
+                    products?.length || 0
+                  )}{" "}
+                  of {products && products.length} results
                 </p>
+                {searchQuery && (
+                  <button
+                    onClick={clearSearch}
+                    className="text-sm text-blue-600 hover:text-blue-800 mt-2 flex items-center gap-1"
+                  >
+                    <i className="bx bx-x text-lg"></i>
+                    Clear search
+                  </button>
+                )}
               </div>
               <div className="flex items-center gap-4">
                 <select
@@ -255,7 +272,7 @@ const Product = () => {
                   : "grid-cols-1"
               } gap-6`}
             >
-              {products &&
+              {products && products.length > 0 ? (
                 products
                   .slice(
                     (currentPage - 1) * productsPerPage,
@@ -267,26 +284,53 @@ const Product = () => {
                       product={product}
                       showStyle={showStyle}
                     />
-                  ))}
+                  ))
+              ) : (
+                <div className="col-span-full text-center py-12">
+                  <div className="text-gray-500">
+                    <i className="bx bx-search text-6xl mb-4"></i>
+                    <h3 className="text-xl font-medium mb-2">
+                      {searchQuery
+                        ? `No products found for "${searchQuery}"`
+                        : "No products available"}
+                    </h3>
+                    <p className="text-sm">
+                      {searchQuery
+                        ? "Try adjusting your search terms or browse all products"
+                        : "Please check back later"}
+                    </p>
+                    {searchQuery && (
+                      <button
+                        onClick={clearSearch}
+                        className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                      >
+                        Browse All Products
+                      </button>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Pagination */}
-            <div className="flex justify-center items-center gap-7 mt-10">
-              <button
-                disabled={currentPage <= 1}
-                onClick={() => setCurrentPage(currentPage - 1)}
-                className="bg-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
-              >
-                Previous
-              </button>
-              <button
-                disabled={currentPage * productsPerPage > products?.length}
-                onClick={() => setCurrentPage(currentPage + 1)}
-                className="bg-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
-              >
-                Next
-              </button>
-            </div>
+            {products && products.length > productsPerPage && (
+              <div className="flex justify-center items-center gap-7 mt-10">
+                <button
+                  disabled={currentPage <= 1}
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                  className="bg-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+                >
+                  Previous
+                </button>
+                <button
+                  disabled={currentPage * productsPerPage > products?.length}
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                  className="bg-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+                >
+                  Next
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

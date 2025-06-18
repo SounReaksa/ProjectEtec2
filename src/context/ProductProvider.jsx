@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 export const ProductContext = createContext();
 
@@ -6,11 +6,13 @@ const ProductProvider = ({ children }) => {
   const [allProducts, setAllProduct] = useState(null);
   const [products, setProducts] = useState(null);
   const [sortValue, setSortValue] = useState("");
-
+  const [productDetail, setProductDetail] = useState(null);
   // Filter State
   const [categoryValue, setCategoryValue] = useState("");
   const [priceValue, setPriceValue] = useState(0);
   const [rateValue, setRateValue] = useState(0);
+  // Search State
+  const [searchQuery, setSearchQuery] = useState("");
 
   const fetchProduct = async () => {
     try {
@@ -38,42 +40,37 @@ const ProductProvider = ({ children }) => {
         (priceValue === 3 && product.price > 250 && product.price <= 500) ||
         (priceValue === 4 && product.price > 500 && product.price <= 750) ||
         (priceValue === 5 && product.price > 750);
-      return categoryMatch && rateMatch && priceMatch;
+
+      // Search functionality - search by name and category
+      const searchMatch =
+        !searchQuery ||
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.category.toLowerCase().includes(searchQuery.toLowerCase());
+
+      return categoryMatch && rateMatch && priceMatch && searchMatch;
     });
     setProducts(filteredProduct);
   };
 
-  const userId = localStorage.getItem("id");
-  const addToCart = async (id, qty) => {
-    const resChecking = await fetch(`http://localhost:3000/carts/${id}`);
-    if (resChecking.ok) {
-      const data = await resChecking.json();
-      const newProductData = { ...data, quantity: data.quantity + qty };
-
-      await fetch(`http://localhost:3000/carts/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newProductData),
-      });
-    } else {
-      // add to cart
-      const productToAdd = allProducts.find((pro) => pro.id == id);
-
-      await fetch(`http://localhost:3000/carts`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...productToAdd,
-          images: productToAdd.images[0],
-          quantity: qty,
-          userId
-        }),
-      });
+  const fetchProductDetail = async (id) => {
+    try {
+      const res = await fetch(`http://localhost:3000/products/${id}`);
+      if (!res.ok) {
+        throw new Error("Failed to fetch product detail.");
+      }
+      const data = await res.json();
+      setProductDetail(data);
+    } catch (error) {
+      console.log(error.message);
     }
+  };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
+  const clearSearch = () => {
+    setSearchQuery("");
   };
 
   useEffect(() => {
@@ -82,7 +79,7 @@ const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     filtereProduct();
-  }, [categoryValue, priceValue, rateValue]);
+  }, [categoryValue, priceValue, rateValue, searchQuery]);
 
   let categories = [];
   allProducts &&
@@ -103,8 +100,12 @@ const ProductProvider = ({ children }) => {
         setPriceValue,
         rateValue,
         priceValue,
-        addToCart,
-        allProducts
+        allProducts,
+        productDetail,
+        fetchProductDetail,
+        searchQuery,
+        handleSearch,
+        clearSearch,
       }}
     >
       {children}
