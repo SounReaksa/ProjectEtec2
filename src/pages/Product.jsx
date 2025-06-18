@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ProductContext } from "../context/ProductProvider";
 import ProductListCard from "../components/ProductListCard";
 
@@ -19,6 +19,11 @@ const Product = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   let productsPerPage = 9;
+
+  // Reset to first page when search query changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery]);
 
   const handleChange = (cate) => {
     if (selectedCategory === cate) {
