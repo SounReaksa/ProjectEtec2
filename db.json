@@ -2,8 +2,8 @@
   "users": [
     {
       "id": "20afa7fb-0262-47cf-9559-ba92f989ff57",
-      "username": "tainuth",
-      "email": "tainuth1@gmail.com",
+      "username": "I love u",
+      "email": "sounraksa7@gmail.com",
       "password": "12345",
       "role": "customer"
     },
@@ -20,35 +20,30 @@
       "email": "sounraksa7@gmail.com",
       "password": "12345",
       "role": "customer"
+    },
+    {
+      "id": "068012a6-788d-41d2-9e28-1238cb9d5fa9",
+      "username": "Soun Reaksa",
+      "email": "sounraksa7@gmail.com",
+      "password": "1111",
+      "role": "customer"
+    },
+    {
+      "id": "453f7d7d-e36b-4e64-8e65-a198867ba842",
+      "username": "Soun Reaksa",
+      "email": "sounraksa7@gmail.com",
+      "password": "1111",
+      "role": "customer"
+    },
+    {
+      "id": "2b798545-f688-4b8b-9ec2-db370c7293a9",
+      "username": "caco",
+      "email": "sounraksa82@gmail.com",
+      "password": "11111",
+      "role": "customer"
     }
   ],
   "carts": [
-    {
-      "id": "c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f",
-      "name": "Apple MacBook Pro 16-inch (M3)",
-      "description": "The MacBook Pro 16-inch with M3 chip delivers exceptional performance, a stunning Liquid Retina XDR display, and all-day battery life for professionals.",
-      "category": "Laptops",
-      "price": 2499,
-      "images": "https://arystorephone.com/wp-content/uploads/2023/11/macbook-pro-16-spaceblack.jpg?v=1743143022",
-      "stock": 15,
-      "discount": 5,
-      "rate": 4.8,
-      "quantity": 4,
-      "userId": "20afa7fb-0262-47cf-9559-ba92f989ff57"
-    },
-    {
-      "id": "c6d7e8f9-a0b1-2c3d-4e5f-6a7b8c9d0e1f",
-      "name": "Xiaomi Mi Smart Band 8",
-      "description": "Xiaomi Mi Smart Band 8 is an affordable fitness tracker with heart rate monitoring, sleep tracking, and a vibrant AMOLED display.",
-      "category": "Wearables",
-      "price": 59,
-      "images": "https://www.batna24.com/img2/1000/335460_170916.webp",
-      "stock": 100,
-      "discount": 15,
-      "rate": 4.1,
-      "quantity": 1,
-      "userId": "20afa7fb-0262-47cf-9559-ba92f989ff57"
-    },
     {
       "id": "e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b",
       "name": "HP Spectre x360",
@@ -59,7 +54,7 @@
       "stock": 40,
       "discount": 6,
       "rate": 4.1,
-      "quantity": 7,
+      "quantity": 4,
       "userId": null
     },
     {
@@ -72,7 +67,7 @@
       "stock": 50,
       "discount": 25,
       "rate": 3.6,
-      "quantity": 18,
+      "quantity": 20,
       "userId": null
     },
     {
@@ -98,7 +93,7 @@
       "stock": 55,
       "discount": 5,
       "rate": 4.5,
-      "quantity": 2,
+      "quantity": 3,
       "userId": "c1d930a1-7574-40db-89b6-6be9cb7beaf6"
     }
   ],

@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import { CartContext } from "../context/CartProvider";
 import { ProductContext } from "../context/ProductProvider";
+import ClientModal from "../components/Modal";
+import Dropdownn from "../components/Dropdown.jsx";
 
 const Navbar = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
@@ -89,9 +91,7 @@ const Navbar = () => {
                   {totalItems}
                 </span>
               </Link>
-              <button>
-                <i className="bx bx-user text-gray-700 text-xl"></i>
-              </button>
+              <Dropdownn/>
               <button onClick={logout}>
                 <i className="bx bx-log-out text-gray-700 text-xl"></i>
               </button>

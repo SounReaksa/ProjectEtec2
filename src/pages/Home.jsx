@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import ProductCard from "../components/ProductCard";
 import { ProductContext } from "../context/ProductProvider";
 import { Link } from "react-router-dom";
+import ClientModal from "../components/Modal.jsx";
 
 const Home = () => {
   const { allProducts, categories } = useContext(ProductContext);
@@ -13,9 +14,10 @@ const Home = () => {
           <div className="max-w-[1200px] m-auto py-6">
             <div className="grid grid-cols-2">
               <div className="flex flex-col justify-center items-start">
-                <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent mb-4 bg-pink-100 text-pink-600 hover:bg-pink-100">
+                {/* <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent mb-4 bg-pink-100 text-pink-600 hover:bg-pink-100">
                   Best Deal In This Week
-                </span>
+                </span> */}
+                <ClientModal/>
                 <h2 className="text-4xl font-bold text-gray-900 mb-6">
                   iPhone 15 Pro Max
                 </h2>
