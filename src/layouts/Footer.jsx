@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../assets/logo/logo.png";
 
 const Footer = () => {
   return (
@@ -6,7 +8,15 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto">
         <div className="grid grid-cols-4 gap-4 py-10">
           <div className="flex flex-col gap-2">
-            <h1 className="text-white text-lg font-bold">eTrade</h1>
+            {/* Logo */}
+        <Link to="/" className="flex items-center gap-2">
+          <img
+            src={Logo}
+            alt="Logo"
+            className="h-[80px] w-auto object-contain transition-transform duration-300 hover:scale-105 rounded-[10px]"
+          />
+        </Link>
+            {/* <h1 className="text-white text-lg font-bold">eTrade</h1> */}
             <p className="text-gray-400 text-[13px]">Your trusted partner for all electronic needs. Quality products, competitive prices.</p>
           </div>
           <div className="flex flex-col gap-2">

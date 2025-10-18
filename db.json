@@ -54,7 +54,7 @@
       "stock": 40,
       "discount": 6,
       "rate": 4.1,
-      "quantity": 4,
+      "quantity": 48,
       "userId": null
     },
     {
@@ -67,7 +67,7 @@
       "stock": 50,
       "discount": 25,
       "rate": 3.6,
-      "quantity": 20,
+      "quantity": 23,
       "userId": null
     },
     {
@@ -80,7 +80,7 @@
       "stock": 60,
       "discount": 7,
       "rate": 4.2,
-      "quantity": 3,
+      "quantity": 10,
       "userId": null
     },
     {

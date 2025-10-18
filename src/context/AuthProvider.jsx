@@ -1,85 +1,78 @@
 import { createContext, useEffect, useState } from "react";
-import { data, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null); //  store user info
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState("");
 
-  const navigate = useNavigate();
+  const API_URL = "http://localhost:8081/api/auth";
 
-  const register = async (userData) => {
+  // Login function
+  const login = async (username, password) => {
     try {
-      const res = await fetch("http://localhost:3000/users", {
+      const res = await fetch(`${API_URL}/login`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
       });
-
-      if (!res.ok) {
-        throw new Error("Failed to register");
-      }
       const data = await res.json();
 
-      localStorage.setItem("id", data.id);
+      if (data.error) throw new Error(data.error);
+
+      localStorage.setItem("user", JSON.stringify(data.user));
+      setUser(data.user);
       setIsAuthenticated(true);
-      navigate("/");
-    } catch (error) {
-      console.log(`Error: ${error.message}`);
+
+      return data;
+    } catch (err) {
+      setError(err.message);
+      throw err;
     }
   };
 
+  // Register function
+  const register = async (username, email, password, confirmPassword, role = "customer") => {
+    try {
+      const res = await fetch(`${API_URL}/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password, confirmPassword, role }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Registration failed");
+
+      return data;
+    } catch (err) {
+      setError(err.message);
+      throw err;
+    }
+  };
+
+  // Logout function
   const logout = () => {
-    localStorage.removeItem("id");
+    localStorage.removeItem("user"); // clear stored user
+    setUser(null);
     setIsAuthenticated(false);
   };
 
-  const login = async (loginData) => {
-    try {
-      const res = await fetch(
-        `http://localhost:3000/users?email=${loginData.email}`
-      );
-      if (!res.ok) throw new Error("Failed to login.");
-
-      const data = await res.json();
-
-      if (data.length == 0) {
-        setError("This email is not register yet.");
-        return;
-      }
-
-      if (data[0].password == loginData.password) {
-        localStorage.setItem("id", data[0].id);
-        setIsAuthenticated(true);
-        navigate("/");
-      } else {
-        setError("Wrong password.");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  // On mount, check if user exists in localStorage
   useEffect(() => {
-    const id = localStorage.getItem("id");
-    if (id) {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
       setIsAuthenticated(true);
-    } else {
-      setIsAuthenticated(false);
     }
   }, []);
 
   return (
-    <>
-      <AuthContext.Provider
-        value={{ register, logout, login, error, isAuthenticated }}
-      >
-        {children}
-      </AuthContext.Provider>
-    </>
+    <AuthContext.Provider
+      value={{ user, isAuthenticated, login, register, logout, error }}
+    >
+      {children}
+    </AuthContext.Provider>
   );
 };
 
