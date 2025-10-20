@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const API_URL = "http://localhost:8081/api/auth";
 
@@ -89,9 +90,9 @@ const Register = () => {
         <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
             <div className="w-full max-w-lg bg-white p-8 rounded-xl shadow-2xl border border-gray-100 transition duration-300 hover:shadow-3xl">
                 <div className="text-center mb-8">
-                    <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">
+                    {/* <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">
                         Create Account
-                    </h1>
+                    </h1> */}
                     <p className="mt-2 text-gray-500 text-lg">
                         Get started with a free account today
                     </p>
@@ -147,11 +148,10 @@ const Register = () => {
 
                     <button
                         type="submit"
-                        className={`w-full flex justify-center items-center py-3 px-4 rounded-lg text-white font-bold tracking-wide mt-6 transition duration-300 ${
-                            loading
+                        className={`w-full flex justify-center items-center py-3 px-4 rounded-lg text-white font-bold tracking-wide mt-6 transition duration-300 ${loading
                                 ? "bg-green-400 cursor-not-allowed"
                                 : "bg-green-600 hover:bg-green-700 shadow-md hover:shadow-lg"
-                        }`}
+                            }`}
                         disabled={loading}
                     >
                         {loading ? "Registering..." : "Register"}
@@ -160,7 +160,13 @@ const Register = () => {
 
                 <p className="text-center mt-8 text-gray-500 text-sm">
                     Already have an account?{" "}
-                    <LinkPlaceholder to={"/login"}>Sign in here</LinkPlaceholder>
+                    {/* <LinkPlaceholder to={"/login"}>Sign in here</LinkPlaceholder> */}
+                    <Link
+                        to="/login"
+                        className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+                    >
+                        Sign in here
+                    </Link>
                 </p>
             </div>
         </div>

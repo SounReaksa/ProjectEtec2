@@ -1,38 +1,57 @@
+
 import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); //  store user info
+  const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState("");
 
   const API_URL = "http://localhost:8081/api/auth";
 
-  // Login function
-  const login = async (username, password) => {
+  //  Safe helper for parsing JSON
+  const safeParseJSON = (value) => {
+    try {
+      return value ? JSON.parse(value) : null;
+    } catch {
+      console.warn("Invalid JSON in localStorage for 'user'");
+      return null;
+    }
+  };
+
+  //  Login function
+  const login = async (email, password) => {
     try {
       const res = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       });
+
       const data = await res.json();
 
-      if (data.error) throw new Error(data.error);
+      if (!res.ok) throw new Error(data.message || "Login failed");
 
-      localStorage.setItem("user", JSON.stringify(data.user));
-      setUser(data.user);
+      const userData = {
+        username: data.username || data.user?.username,
+        email: data.email || data.user?.email,
+        role: data.role || data.user?.role,
+      };
+      
+      //  Save a valid user object
+      localStorage.setItem("user", JSON.stringify(userData));
+      setUser(userData);
       setIsAuthenticated(true);
-
-      return data;
+      window.location.reload();
+      return userData;
     } catch (err) {
       setError(err.message);
       throw err;
     }
   };
 
-  // Register function
+  //  Register function
   const register = async (username, email, password, confirmPassword, role = "customer") => {
     try {
       const res = await fetch(`${API_URL}/register`, {
@@ -51,29 +70,28 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  // Logout function
+  //  Logout function
   const logout = () => {
-    localStorage.removeItem("user"); // clear stored user
+    localStorage.removeItem("user");
     setUser(null);
     setIsAuthenticated(false);
   };
 
-  // On mount, check if user exists in localStorage
+  // Check stored user on mount
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
+    const storedUser = safeParseJSON(localStorage.getItem("user"));
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      setUser(storedUser);
       setIsAuthenticated(true);
     }
   }, []);
 
   return (
-    <AuthContext.Provider
-      value={{ user, isAuthenticated, login, register, logout, error }}
-    >
+    <AuthContext.Provider value={{ user, isAuthenticated, login, register, logout, error }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
 export default AuthProvider;
+

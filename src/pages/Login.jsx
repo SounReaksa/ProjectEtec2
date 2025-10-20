@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 const API_URL = "http://localhost:8081/api/auth";
 
@@ -7,32 +9,27 @@ const useAuth = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const login = async ({ email, password }) => {
-        setLoading(true);
-        setError(null);
-
+    const login = async (email, password) => {
         try {
             const res = await fetch(`${API_URL}/login`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password }),
-            });
 
+             });
             const data = await res.json();
+            if (!res.ok) throw new Error(data.message);
 
-            if (!res.ok) {
-                throw new Error(data.message || "Login failed");
-            }
+            const userData = {
+                username: data.username,
+                email: data.email,
+                role: data.role
+            };
 
-            // Save user info in localStorage
-            localStorage.setItem("user", JSON.stringify(data.user));
-            console.log("Login successful:", data.user);
-            setLoading(false);
+            localStorage.setItem("user", JSON.stringify(userData));
+            setUser(userData);         // ✅ update context
+            setIsAuthenticated(true);
 
-            return data;
+            return userData;           // ✅ important: return value
         } catch (err) {
             setError(err.message);
-            setLoading(false);
             throw err;
         }
     };
@@ -57,12 +54,10 @@ const LinkPlaceholder = ({ to, children, className }) => {
 };
 
 const Login = () => {
-    const { login, error, loading } = useAuth();
-
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-    });
+    const { login, error } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({ email: "", password: "" });
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -70,14 +65,17 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         try {
-            const userData = await login(formData);
-            alert("Login successful!");
-            console.log("Logged in user:", userData.user);
-            // Optionally redirect to dashboard here
+            const userData = await login(formData.email, formData.password); // ✅ context login
+            console.log("Logged in user:", userData);
+            navigate("/"); // ✅ navigate works now
+            window.location.reload();
         } catch (err) {
             console.error(err);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -86,9 +84,9 @@ const Login = () => {
             <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-2xl border border-gray-100 transition duration-300 hover:shadow-3xl">
                 {/* Header */}
                 <div className="text-center mb-8">
-                    <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">
+                    {/* <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">
                         Welcome E Trade
-                    </h1>
+                    </h1> */}
                     <p className="mt-2 text-gray-500 text-lg">
                         Sign in to continue to your account
                     </p>
@@ -105,17 +103,17 @@ const Login = () => {
                     {/* Email Field */}
                     <div>
                         <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">
-                          Username or Email Address
+                            Email Adddress
                         </label>
                         <input
-                            type="text"
+                            type="email"
                             id="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
                             required
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-150 placeholder-gray-400"
-                            placeholder="you@example.com"
+                            placeholder="Email Address"
                             disabled={loading}
                         />
                     </div>
@@ -146,9 +144,8 @@ const Login = () => {
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        className={`w-full flex justify-center items-center py-3 px-4 rounded-lg text-white font-bold tracking-wide transition duration-300 ${
-                            loading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg"
-                        }`}
+                        className={`w-full flex justify-center items-center py-3 px-4 rounded-lg text-white font-bold tracking-wide transition duration-300 ${loading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg"
+                            }`}
                         disabled={loading}
                     >
                         {loading ? (
@@ -163,7 +160,13 @@ const Login = () => {
                 {/* Footer */}
                 <p className="text-center mt-8 text-gray-500 text-sm">
                     Don't have an account?{" "}
-                    <LinkPlaceholder to={"/register"}>Create an account</LinkPlaceholder>
+                    {/* <LinkPlaceholder to={"/register"}>Create an account</LinkPlaceholder> */}
+                    <Link
+                        to="/register"
+                        className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+                    >
+                        create an account
+                    </Link>
                 </p>
             </div>
         </div>

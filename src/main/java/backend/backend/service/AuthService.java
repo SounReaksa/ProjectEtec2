@@ -28,14 +28,14 @@ public class AuthService {
                 .role("customer")
                 .build();
 
-        // Do NOT set user.setId(...)
-        // Let Hibernate auto-generate the UUID
+        //  Do NOT set user.setId(...)
+        //  Let Hibernate auto-generate the UUID
         return userRepository.save(user);
     }
 
-    public User login(String email, String password) throws Exception {
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new Exception("Invalid email or password"));
+    public User login(String username, String password) throws Exception {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new Exception("Invalid username or password"));
         if (!user.getPassword().equals(password)) {
             throw new Exception("Invalid password");
         }

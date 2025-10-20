@@ -11,7 +11,7 @@ const Users = () => {
         <thead className="bg-gray-200">
           <tr>
             <th className="p-2 border">ID</th>
-            <th className="p-2 border">Username</th>
+            <th className="p-2 border">{user?.username}</th>
             <th className="p-2 border">Email</th>
             <th className="p-2 border">Role</th>
           </tr>

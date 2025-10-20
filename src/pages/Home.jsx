@@ -23,11 +23,11 @@ const Home = () => {
                 </h2>
                 <div className="flex items-center gap-2">
                   <div className="flex text-lg text-yellow-600">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
+                    <i className="bx bxs-star"></i>
+                    <i className="bx bxs-star"></i>
+                    <i className="bx bxs-star"></i>
+                    <i className="bx bxs-star"></i>
+                    <i className="bx bxs-star"></i>
                   </div>
                   <span>(4.5)</span>
                 </div>
